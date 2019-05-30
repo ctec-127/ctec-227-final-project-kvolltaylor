@@ -1,0 +1,40 @@
+.gfont {
+    font-family: 'Sedgwick Ave', cursive;
+}
+
+.gradient-background {
+    background-image: linear-gradient(#ffffff, #d7e4fd);
+}
+
+legend {
+    width:inherit; /* To override the full 100% width that bootstrap sets */
+    padding:0 10px; 
+    border-bottom:none;
+}
+
+.center {
+    margin: auto;
+}
+
+ul li.error::before {
+    content: "\2022";
+    color: #dc3545;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+
+.nude_link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nude_link a:link, a:visited, a:focus, a:hover, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.underline_link a:hover {
+    text-decoration: underline;
+}
