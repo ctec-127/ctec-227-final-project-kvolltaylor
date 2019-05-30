@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
     if (empty($_POST['pw'])) {
         array_push($error_bucket, "<p>A password is required.</p>");
     } else {
-        $password = $db->password_hash($_POST['pw'], PASSWORD_DEFAULT);
+        $password = hash('sha512',$_POST['pw']);
     }
 
 
@@ -45,9 +45,18 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
         $result = $db->query($sql);
 
         if($result){
-            echo '<h1>Yay! You created a Jrnl account!</h1>';
+            // feedback to let user know everything worked
+            echo '<h1 class="text-success p-3">Yay! You created a Jrnl account!</h1>';
+
+            // clear the fields for the next entry
+            unset($first);
+            unset($last);
+            unset($email);
+            unset($password);
         }
     
+        } else{
+        echo '<p class="font-warning">FILL OUT ALL FIELDS</p>';
     }
 
  
