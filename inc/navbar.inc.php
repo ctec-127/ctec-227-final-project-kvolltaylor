@@ -1,3 +1,9 @@
+<?php
+  require_once __DIR__ . "/../inc/db/mysqli_connect.inc.php";
+  require_once __DIR__ . "/../functions/functions.inc.php";
+  require __DIR__ . "/../inc/config/config.inc.php";
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand ml-4" href="frontpage.php"><span class="gfont h1">Jrnl</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

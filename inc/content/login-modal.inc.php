@@ -1,12 +1,11 @@
     <?php 
+
+    // check if form data sent post
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-     # Create a new connection to the database
-     $db = new mysqli('localhost','root','','journal');
-     # If there was an error connecting to the database
-     if ($db->connect_error) {
-         $error = $db->connect_error;
-         echo $error;
+      require_once __DIR__ . "/../inc/db/mysqli_connect.inc.php";
+      require_once __DIR__ . "/../functions/functions.inc.php";
+      require __DIR__ . "/../inc/config/config.inc.php";
+
      }
      # Set the character encoding of the database connection to UTF-8
      $db->set_charset('utf8');
