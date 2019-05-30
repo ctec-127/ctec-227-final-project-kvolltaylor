@@ -37,6 +37,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                  <? require_once 'inc/content/login-modal.inc.php' ?>
                   <form name="login_popup" id="login_popup" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
                     <fieldset class="border border-secondary rounded px-2 pt-2 pb-4 mb-4 shadow bg-white">
                     <legend class="text-secondary">Enter your email & password:</legend>

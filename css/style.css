@@ -38,3 +38,7 @@ ul li.error::before {
 a.underline_link a:hover {
     text-decoration: underline;
 }
+
+#showPassword {
+    text-decoration: underline;
+}
