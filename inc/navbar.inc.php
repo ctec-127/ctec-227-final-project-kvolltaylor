@@ -23,8 +23,45 @@
     </ul>
     <ul class="nav navbar-nav navbar-right d-inline mr-4">
       <li class='d-inline'>
-          <a href='login.php' id="nav_login" name="nav_login" class='text-secondary'><i class="fas fa-sign-in-alt mx-2 text-success"></i>   Log In</a>
+          <a href="#" id="nav_login" name="nav_login" class='text-secondary' data-toggle="modal" data-target="#login_entry"><i class="fas fa-sign-in-alt mx-2 text-success"></i>   Log In</a>
       </li>
+
+      <!-- modal pop-up for login-->
+      <div class="modal fade" id="login_entry" tabindex="-1" role="dialog" aria-labelledby="login_entryTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header gradient-background">
+                    <h5 class="modal-title" id="login_entryTitle">Log In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cancel">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <fieldset class="border border-secondary rounded px-2 pt-2 pb-4 mb-4 shadow bg-white">
+                    <legend class="text-secondary">Enter your email & password:</legend>
+                    <div class="px-4">
+                      <label for="email_login">Email</label>
+                      <br>
+                      <input type="email" name="email_login" id="email_login">
+                      <br><br>
+                      <label for="pw_login">Password</label>
+                      <br>
+                      <input type="password" name="pw_login" id="pw_login">
+                    </div>
+                  </fieldset>
+                  </form>
+                    
+                </div>
+                <div class="modal-footer gradient-background">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-secondary" data-dismiss="modal">Submit</button>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!-- end modal -->
+
       <li class='d-inline'>
           <a href id="nav_logout" name="nav_logout" class='text-secondary'><i class="fas fa-sign-out-alt mx-2 text-info"></i>   Log Out</a>
       </li>
