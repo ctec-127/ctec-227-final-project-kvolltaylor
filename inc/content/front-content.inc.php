@@ -25,9 +25,6 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Cancel">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <button type="submit" class="submit" data-dismiss="modal" aria-label="Submit">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                   <form>
