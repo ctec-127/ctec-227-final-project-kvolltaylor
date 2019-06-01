@@ -60,8 +60,8 @@
     </div>
 
     <!-- quotes -->
-    <div class="jumbotron gradient-background-2 mb-4">
-    <div id="quotes"><div>
+    <div class="jumbotron gradient-background-2 mb-4 d-inline-block">
+        <div id="quotes"><div>
     </div>
 
 </div>

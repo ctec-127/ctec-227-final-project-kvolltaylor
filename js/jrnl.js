@@ -21,14 +21,17 @@ $(document).ready(function () {
 
         // display each quote of the day and its author
             output += '<div class="border border-info rounded m-4 p-4 bg-white shadow">';
+            output += '<div class="row"><div class="col-2">';
+            output += '<i class="fas fa-pen-nib fa-9x text-light pl-2 pt-3"></i></div>';
+            output += '<div class="col-10">';
             output += '<div class="mt-4 mb-4 p3 col-12 text-right">';
             output += '<i class="fas fa-quote-left fa-3x d-inline text-info mr-4"></i>';
             output += '<p class="d-inline h3"><span class="quote_style text-secondary">' + data.quote.body + '</span></p>';
             output += '<i class="fas fa-quote-right fa-3x d-inline text-info ml-4"></i>';
             output += '</div>';
             output += '<div class="mr-4 pr-4 text-right">'
-            output += '<p class="gfont h4 text-info">' + data.quote.author + '</p>';
-            output += '</div>';
+            output += '<p class="h4 text-info">' + data.quote.author + '</p>';
+            output += '</div></div></div>';
 
 
             return output;

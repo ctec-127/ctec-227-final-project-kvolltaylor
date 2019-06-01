@@ -10,6 +10,10 @@
     background: linear-gradient(#ffffff, #f8f9fa);
 }
 
+.gradient-background-3 {
+    background: linear-gradient(#f8f9fa, #ffffff);
+}
+
 legend {
     width:inherit; /* To override the full 100% width that bootstrap sets */
     padding:0 10px; 
