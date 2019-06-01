@@ -2,6 +2,38 @@
 
 $(document).ready(function () {
 
+    // quote of the day
+    $.ajax({
+        url: "https://favqs.com/api/qotd",
+        type: "application/json",
+        method: "GET"
+    })
+    .done(function(data){
+        data = displayResults(data);
+        $('#quotes').html(data);
+    })
+    .fail(function(){
+        console.log('Rut roh! Something went wrong when calling the API');
+    });
+
+    function displayResults(data){
+        var output = '';
+
+        // display each quote of the day and its author
+            output += '<div class="border border-info rounded m-4 p-4 bg-white shadow">';
+            output += '<div class="mt-4 mb-4 p3 col-12 text-right">';
+            output += '<i class="fas fa-quote-left fa-3x d-inline text-info mr-4"></i>';
+            output += '<p class="d-inline h3"><span class="quote_style text-secondary">' + data.quote.body + '</span></p>';
+            output += '<i class="fas fa-quote-right fa-3x d-inline text-info ml-4"></i>';
+            output += '</div>';
+            output += '<div class="mr-4 pr-4 text-right">'
+            output += '<p class="gfont h4 text-info">' + data.quote.author + '</p>';
+            output += '</div>';
+
+
+            return output;
+        };
+    
     // enable submit button
     $("input[type='submit']").removeAttr('disabled');
 

@@ -3,7 +3,11 @@
 }
 
 .gradient-background {
-    background-image: linear-gradient(#ffffff, #d7e4fd);
+    background: linear-gradient(#ffffff, #d7e4fd);
+}
+
+.gradient-background-2 {
+    background: linear-gradient(#ffffff, #f8f9fa);
 }
 
 legend {
@@ -42,3 +46,16 @@ a.underline_link a:hover {
 #showPassword {
     text-decoration: underline;
 }
+
+.quote_style {
+    line-height: 200%;
+}
+
+/* #quotes {
+	background-image: url("../img/kelly-sikkema-1638623-unsplash.png") no-repeat center;
+	background-color: #f8f9fa;
+	background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+} */

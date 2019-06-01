@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <div class="row border border-success rounded mt-4">
+    <div class="row border border-secondary rounded mt-4">
         <div class="col m-4 btn btn-outline-success p-4 text-center">
             <a href='#' class='nude_link' data-toggle="modal" data-target="#login_entry_2">
                 <p class='nude_link'><h3>Already have a Jrnl?</h3></p>
@@ -27,7 +27,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                  <form>
+                  <form method="POST" action="login-modal.inc.php">
                     <fieldset class="border border-secondary rounded px-2 pt-2 pb-4 mb-4 shadow bg-white">
                     <legend class="text-secondary">Enter your email & password:</legend>
                     <div class="px-4">
@@ -59,4 +59,10 @@
         </div>
     </div>
 
+    <!-- quotes -->
+    <div class="jumbotron gradient-background-2 mb-4">
+    <div id="quotes"><div>
+    </div>
+
 </div>
+

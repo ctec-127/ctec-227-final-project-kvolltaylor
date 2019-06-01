@@ -1,5 +1,7 @@
     <?php 
 
+    session_start();
+
     // check if form data sent post
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       require_once __DIR__ . "/../inc/db/mysqli_connect.inc.php";
@@ -9,8 +11,8 @@
      }
      # Set the character encoding of the database connection to UTF-8
      $db->set_charset('utf8');
-     $email = $_POST['email'];
-     $password = hash('sha512',$_POST['pw']);
+     $email = $_POST['email_login'];
+     $password = hash('sha512',$_POST['pw_login']);
      $sql = "SELECT * FROM user WHERE email='$email' AND pw='$password'";
     //  echo $sql;
      $result = $db->query($sql);
