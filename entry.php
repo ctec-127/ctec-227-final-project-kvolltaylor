@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
      <!-- stylesheets -->
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave&display=swap" rel="stylesheet">
@@ -28,69 +29,86 @@
         <?php require_once 'inc/navbar.inc.php' ?>
 
         <!-- sql innards -->
-        <?php require_once 'inc/register.inc.php'?>
+        <?php require_once 'inc/entry.inc.php'?>
 
         <!-- form -->
-            <form name="register_form" id="register_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+            <form name="entry_form" id="entry_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 
                 <fieldset class="border border-dark rounded m-2 px-4 py-2 bg-light"> 
-                <legend class="text-dark">Register</legend>
-
-                    <p class="text-danger h5 mb-4 pl-2">All fields are required</p>
+                <legend class="text-dark">Create an Entry for Today</legend>
                     
                     <!-- Error List -->
                     <p class="errors"></p>
 
                         <fieldset class="border border-secondary rounded p-2 mb-4 shadow bg-white">
-                        <legend class="text-secondary">Name</legend>
+                        <legend class="text-secondary">Free Write</legend>
 
-                            <!-- First Name -->
-                            <label for="first" class="ml-4">First Name</label>
+                            <!-- Free Write Here -->
+                            <label for="free_write" class="ml-4">A space for you to write as little or as much as you like.</label>
                             <br>
-                            <input type="text" id="first" name="first" maxlength="20" size="20" class="ml-4">
+                            <textarea id="free_write" name="free_write" class="lg_text_input ml-4"></textarea>
                             <br><br>
-                            
-                            <!-- Last Name -->
-                            <label for="last" class="ml-4">Last Name</label>
-                            <br>
-                            <input type="text" id="last" name="last" maxlength="20" size="20" class="ml-4">
-                            <br><br>
-                            
+
                         </fieldset>
 
                         <fieldset class="p-2 mb-4 border border-secondary rounded shadow bg-white">
-                        <legend class="text-secondary">Email</legend>
+                        <legend class="text-secondary">Mood</legend>
             
-                            <!-- Email -->
-                            <label class="ml-4" for="email" >Address</label>
+                            <!-- Mood Slider -->
+                            <label class="ml-4" for="slider">How do you feel right now?</label>
                             <br>
-                            <input class="ml-4" type="email" name="email" id="email" maxlength="70" size="70">
+                            <div class="row px-4 mx-4 my-4 text-secondary">
+                                <div class="col-3">
+                                    <i class="far fa-sad-tear d-inline fa-3x"></i>
+                                </div>
+                                <div class="col-3 mx-4">
+                                    <i class="far fa-meh-blank d-inline fa-3x"></i>
+                                </div>
+                                <div class="col-3 mx-4">
+                                    <i class="far fa-grin d-inline fa-3x"></i>
+                                </div>
+                                <div class="col-1">
+                                    <i class="far fa-angry d-inline fa-3x"></i>
+                                </div>
+                            </div>
+                            <div id="slider" name="slider" class="mx-4 ui-widget-overlay"></div>
                             <br><br>
                         
                         </fieldset>
 
                         <fieldset id="orderinfo" class="p-2 border border-secondary rounded mb-4 shadow bg-white">
-                        <legend class="text-secondary">Password</legend>
+                        <legend class="text-secondary">What did you do today?</legend>
 
                             <!-- Password -->
-                            <p class='ml-4 text-primary font-italic'>
-                                Create a password between 8 and 30 characters long
+                            <p class="ml-4">
+                                Choose some tags that reflect things you did or thought about.
                             </p>
-                            <label for="pw" class="ml-4">Password</label>
+                            <p class='ml-4 text-primary font-italic'>
+                                For example, maybe you saw a movie. Add a "movie" tag.
+                                <br>
+                                Add as few or as many brief tags as you like, separated by a comma.
+                            </p>
+                            <label for="tags" class="ml-4">Tags</label>
                             <br>
-                            <input type="password" id="pw" name="pw" minlength='8' maxlength="30" size="30" class="ml-4">
+                            <input type="text" id="tags" name="tags" class="sm_text_input ml-4">
                             <br><br>
 
                         </fieldset>
 
                         
                         <fieldset id="tcinfo" class="p-2 border border-secondary rounded mb-4 shadow gradient-background">
-                        <legend class="text-secondary">Terms and Conditions</legend>
+                        <legend class="text-secondary">Anxiety or Panic</legend>
 
                             <!-- modal link -->
                             <div class="pb-3 ml-4">
+                                <!-- Terms and Conditions -->
+                            <label for="tcbox" id="tc">Did you experience anxiety or panic today?</label>
+                            <p class="text-primary font-italic">
+                            It doesn't have to be a full-blown attack, maybe you just didn't feel safe today.
+                            </p>
+                            <input type="checkbox" name="tcbox" id="tcbox" value="yes" class="ml-4 mr-2">I accept
                                 <a href class="text-primary font-italic underline_link" data-toggle="modal" data-target="#tc_text">
-                                Read terms and conditions
+                                PLACESAVER TEXT FOR A BUTTON OF SOME SORT
                                 </a>
                             </div>
                             <!-- modal pop-up -->
@@ -115,11 +133,6 @@
                                 </div>
                             </div>
                             <!-- end modal -->
-                            
-                            <!-- Terms and Conditions -->
-                            <label for="tcbox" class="ml-4" id="tc">Do you accept our terms and conditions?</label>
-                            <br>
-                            <input type="checkbox" name="tcbox" id="tcbox" value="yes" class="ml-4 mr-2">I accept
 
                         </fieldset>
                         
@@ -137,9 +150,21 @@
     </div> <!-- end container class div -->
 
     <!-- javascript -->
-    <script src="js/jquery-3.3.1.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <script src="js/jquery-3.3.1.min.js"></script>  -->
     <script src="js/bootstrap.min.js"></script>
     <script src='js/jrnl.js'></script>
+
+    <script>
+        $(function () {
+            $("#slider").slider();
+        });
+
+        $("#slider").on("slidechange", function (event, ui) {
+            console.log($(this).slider("option", "value"));
+        });
+    </script>
 
 </body>
 </html>

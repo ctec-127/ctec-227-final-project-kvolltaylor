@@ -10,9 +10,6 @@
     background: linear-gradient(#ffffff, #f8f9fa);
 }
 
-.gradient-background-3 {
-    background: linear-gradient(#f8f9fa, #ffffff);
-}
 
 legend {
     width:inherit; /* To override the full 100% width that bootstrap sets */
@@ -53,6 +50,27 @@ a.underline_link a:hover {
 
 .quote_style {
     line-height: 200%;
+}
+
+.lg_text_input {
+    width: 95%;
+    height: 10em;
+}
+
+.sm_text_input {
+    width: 95%;
+}
+
+#slider {
+    width: 95%;
+}
+
+.ui-widget-overlay {
+    background-image: linear-gradient(to left, red,orange,yellow,green,blue,indigo,violet); 
+}
+
+span.ui-slider-handle:active {
+    background-color: red !important;
 }
 
 /* #quotes {

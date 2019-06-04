@@ -1,5 +1,6 @@
 // javascript for JRNL
 
+
 $(document).ready(function () {
 
     // quote of the day
@@ -13,7 +14,7 @@ $(document).ready(function () {
         $('#quotes').html(data);
     })
     .fail(function(){
-        console.log('Rut roh! Something went wrong when calling the API');
+        console.log('Something went wrong when calling the API');
     });
 
     function displayResults(data){
