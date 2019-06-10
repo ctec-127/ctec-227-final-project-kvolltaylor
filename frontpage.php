@@ -1,8 +1,4 @@
-<?php 
-// session_start(); 
-?>
 
-<? require_once 'inc/content/login-modal.inc.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +10,9 @@
     <!-- stylesheets -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-
 
     <title>Welcome to Jrnl</title>
 </head>
@@ -34,7 +30,9 @@
 
     <!-- javascript -->
     <script src="js/jquery-3.3.1.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src='js/jrnl.js'></script>
+    <script src='js/jrnl.js'></script> 
+    <script src="js/login.js"></script>
 </body>
 </html>

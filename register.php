@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
-
     <title>Register Here</title>
 </head>
 <body>
@@ -28,7 +27,7 @@
         <?php require_once 'inc/navbar.inc.php' ?>
 
         <!-- sql innards -->
-        <?php require_once 'inc/register.inc.php'?>
+        <?php require_once 'inc/content/register.inc.php'?>
 
         <!-- form -->
             <form name="register_form" id="register_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">

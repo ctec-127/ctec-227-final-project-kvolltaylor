@@ -16,5 +16,6 @@ $db_db_name = 'journal';
 
 //table names
 $db_user_table = 'user';
+$db_entry_table = 'entry';
 
 ?>

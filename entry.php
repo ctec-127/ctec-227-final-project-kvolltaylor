@@ -12,6 +12,7 @@
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
@@ -29,7 +30,7 @@
         <?php require_once 'inc/navbar.inc.php' ?>
 
         <!-- sql innards -->
-        <?php require_once 'inc/entry.inc.php'?>
+        <?php require_once 'inc/content/entry.inc.php'?>
 
         <!-- form -->
             <form name="entry_form" id="entry_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
@@ -44,10 +45,12 @@
                         <legend class="text-secondary">Free Write</legend>
 
                             <!-- Free Write Here -->
-                            <label for="free_write" class="ml-4">A space for you to write as little or as much as you like.</label>
-                            <br>
-                            <textarea id="free_write" name="free_write" class="lg_text_input ml-4"></textarea>
-                            <br><br>
+                            <div class="form-group">
+                                <label for="free_write" class="ml-4">A space for you to write as little or as much as you like.</label>
+                                <br>
+                                <textarea id="free_write" name="free_write" class="form-control lg-input mx-4 pr-4" rows="7"></textarea>
+                                <br><br>
+                            </div>
 
                         </fieldset>
 
@@ -55,43 +58,49 @@
                         <legend class="text-secondary">Mood</legend>
             
                             <!-- Mood Slider -->
-                            <label class="ml-4" for="slider">How do you feel right now?</label>
-                            <br>
-                            <div class="row px-4 mx-4 my-4 text-secondary">
-                                <div class="col-3">
-                                    <i class="far fa-sad-tear d-inline fa-3x"></i>
+                            <div class="form-group">
+                                <label class="ml-4" for="slider">How do you feel right now?</label>
+                                <br>
+                                <div class="row px-4 mx-4 my-4 text-secondary">
+                                    <div class="col-3">
+                                        <i class="far fa-sad-tear d-none d-xl-inline fa-3x"></i>
+                                    </div>
+                                    <div class="col-3 mx-4">
+                                        <i class="far fa-meh-blank d-none d-xl-inline fa-3x"></i>
+                                    </div>
+                                    <div class="col-3 mx-4">
+                                        <i class="far fa-grin d-none d-xl-inline fa-3x"></i>
+                                    </div>
+                                    <div class="col-1">
+                                        <i class="far fa-angry d-none d-xl-inline fa-3x"></i>
+                                    </div>
                                 </div>
-                                <div class="col-3 mx-4">
-                                    <i class="far fa-meh-blank d-inline fa-3x"></i>
-                                </div>
-                                <div class="col-3 mx-4">
-                                    <i class="far fa-grin d-inline fa-3x"></i>
-                                </div>
-                                <div class="col-1">
-                                    <i class="far fa-angry d-inline fa-3x"></i>
-                                </div>
+                                <div id="slider" name="slider" class="mx-4 ui-widget-overlay lg-input"></div>
+                                <br><br>
                             </div>
-                            <div id="slider" name="slider" class="mx-4 ui-widget-overlay"></div>
-                            <br><br>
                         
                         </fieldset>
 
-                        <fieldset id="orderinfo" class="p-2 border border-secondary rounded mb-4 shadow bg-white">
+                        <fieldset id="tag_bullets" class="p-2 border border-secondary rounded mb-4 shadow bg-white">
                         <legend class="text-secondary">What did you do today?</legend>
 
-                            <!-- Password -->
-                            <p class="ml-4">
-                                Choose some tags that reflect things you did or thought about.
-                            </p>
-                            <p class='ml-4 text-primary font-italic'>
-                                For example, maybe you saw a movie. Add a "movie" tag.
+                            <!-- Tags/Bullets -->
+                            <div class="form-group">
+                                <p class="ml-4">
+                                    Choose some tags that reflect things you did or thought about.
+                                </p>
+                                <p class='ml-4 text-primary font-italic'>
+                                    For example, maybe you saw a movie. Add a "movie" tag.
+                                    <br>
+                                    Add as few or as many brief tags as you like, separated by a comma.
+                                </p>
+                                <label for="tags" class="ml-4">Tags</label>
                                 <br>
-                                Add as few or as many brief tags as you like, separated by a comma.
-                            </p>
-                            <label for="tags" class="ml-4">Tags</label>
-                            <br>
-                            <input type="text" id="tags" name="tags" class="sm_text_input ml-4">
-                            <br><br>
+                                <div class="ml-4">
+                                    <input type="text" data-role="tagsinput" id="tags" name="tags" class="form-control lg-input ml-4">
+                                </div>
+                                <br>
+                            </div>
 
                         </fieldset>
 
@@ -154,6 +163,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <!-- <script src="js/jquery-3.3.1.min.js"></script>  -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
     <script src='js/jrnl.js'></script>
 
     <script>
