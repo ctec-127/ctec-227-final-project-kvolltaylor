@@ -1,14 +1,11 @@
 <?php
 
     if (isset($_POST['email'])) {
-        $email = $_POST['email'];
-        $password = strip_tags($_POST['pw']);
-        $_SESSION['email'] = $email;
-        $_SESSION['pw'] = $password;
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['pw'] = $_POST['pw'];
     }
 
-    echo '<pre>';
-    echo $email;
-    echo '</pre>';
+    echo $_SESSION['email'];
+    echo $_SESSION['pw'];
 
 ?>

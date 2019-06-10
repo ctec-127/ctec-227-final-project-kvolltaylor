@@ -5,7 +5,6 @@ $(document).ready(function(){
         console.log('login_popup submit is fired off');
         e.preventDefault();
 		submitForm();
-		return false;
 	});
 });
 
@@ -14,8 +13,7 @@ function submitForm(){
     $.ajax({
       type: 'POST',
       url: 'inc/content/session-backend.inc.php',
-      cache: false,
-      data: $('form#login_popup').serialize(),
+      data: $('#login_popup').serialize(),
       success: function(response){
         console.log(response);
       },
@@ -23,4 +21,5 @@ function submitForm(){
         console.log("Error with submitForm function");
       }
     });
+    $('#submit').css({"display":"none"});
   }

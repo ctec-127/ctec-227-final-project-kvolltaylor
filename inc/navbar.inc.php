@@ -4,17 +4,6 @@
   require_once "config/config.inc.php";
   // require_once "content/login-modal.inc.php";
 
-  // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  //     $_SESSION['email'] = $_POST['email_login'];
-  //     $_SESSION['pw'] = $_POST['pw_login'];
-
-  //       if (isset($_POST['email_login'])) {
-  //         echo '<h1>'.$_POST['email_login'].'</h1>';
-  //       }else{
-  //         echo '<h1>no post data yet</h1>";
-  //       }
-
-  // }
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,7 +20,7 @@
           My Jrnl
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Make an Entry</a>
+          <a class="dropdown-item" href="entry.php">Make an Entry</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Read my Entries</a>
           <a class="dropdown-item" href="#">Read my Anxiety Entries</a>
@@ -60,6 +49,7 @@
                       <fieldset class="border border-secondary rounded px-2 pt-2 pb-4 mb-4 shadow bg-white">
                       <legend class="text-secondary">Enter your email & password:</legend>
                       <div class="px-4">
+                      <!-- begin form -->
                       <form name="login_popup" id="login_popup" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
                         <label for="email_nav">Email</label>
                         <br>
@@ -69,15 +59,15 @@
                         <a href="#" id="showPassword" class="font-italic ml-2" onclick="showPassword();">Show Password</a>
                         <br>
                         <input type="password" name="pw" id="pw_nav" placeholder="password" required>
-                      <!-- </form> -->
                       </div>
                       
                     </fieldset>   
                   </div>
                   <div class="modal-footer gradient-background">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                      <button type="submit" id="submit" class="btn btn-secondary login" data-dismiss="modal">Submit</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="submit" id="submit" class="btn btn-secondary login" >Submit</button>
                   </div>
+                      <!-- end form -->
                       </form>
             </div>
         </div>

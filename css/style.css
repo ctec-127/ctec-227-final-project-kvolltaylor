@@ -103,3 +103,7 @@ span.ui-slider-handle:active {
 #login, #logout, #nav_login, #nav_logout {
     /* display: none; */
 }
+
+#submit {
+    data-dismiss: none;
+}

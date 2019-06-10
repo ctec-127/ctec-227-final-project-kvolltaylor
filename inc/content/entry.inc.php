@@ -6,10 +6,8 @@
         $mood_slider = $db->real_escape_string($_POST['slider']);
 
         $tags = $db->real_escape_string($_POST['tags']);
-        
-        // $email = $db->real_escape_string($_SESSION['email']);
 
-        $id = "SELECT user_id FROM users WHERE email=".$_SESSION['email'];
+        $id = "SELECT user_id FROM user WHERE email=".$_SESSION['email'];
 
 
         //sql insert new data into the user table
