@@ -15,7 +15,7 @@ function submitForm(){
       url: 'inc/content/session-backend.inc.php',
       data: $('#login_popup').serialize(),
       success: function(response){
-        console.log(response);
+        console.log('From Login' + response);
       },
       error: function(){
         console.log("Error with submitForm function");

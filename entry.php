@@ -1,4 +1,9 @@
 <?php session_start(); ?>
+<?php 
+    if (!isset($_SESSION['email'])) {
+        header('Location: frontpage.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +24,9 @@
     <title>Write an Entry</title>
 </head>
 <body>
+
+
+
 
     <div class='containter'>
 
