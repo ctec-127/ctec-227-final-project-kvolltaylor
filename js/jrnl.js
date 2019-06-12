@@ -3,24 +3,94 @@
 
 $(document).ready(function () {
 
-    // quote of the day
-    $.ajax({
-        url: "https://favqs.com/api/qotd",
-        type: "application/json",
-        method: "GET"
-    })
-    .done(function(data){
-        data = displayResults(data);
-        $('#quotes').html(data);
-    })
-    .fail(function(){
-        console.log('Something went wrong when calling the API');
+// NAVBAR
+
+    // Modal: login Jquery and AJAX
+    $("#login_popup").on("submit", function(e){
+        console.log('login_popup submit is fired off');
+        e.preventDefault();
+        submitForm();
     });
 
-    function displayResults(data){
-        var output = '';
 
-        // display each quote of the day and its author
+    function submitForm(){
+        console.log('submitForm function is fired off')
+        $.ajax({
+        type: 'POST',
+        url: 'inc/content/session-backend.inc.php',
+        data: $('#login_popup').serialize(),
+            success: function(response){
+                console.log('From Login' + response);
+                $('#submit').css({"display":"none"});
+                $('#login_msg').css({"color":"#28a745", "font-size":"1.5em", "font-weight":"bold","margin-right":"15%"});
+                $('#login_msg').html('Welcome back, ' + response + '!');
+                $('#login_entryTitle').html('You are currently logged in');
+                $('#login_entryTitle').css({"margin-left":"15%"});
+                $('#modal-body').html('');
+            },
+            error: function(){
+                console.log("Error with submitForm function");
+            }
+        });
+
+    }
+
+    // Navbar: logout
+
+    // logout button clicked
+    $('#logout_section').on('click',function(e){
+    // prevent anchor link from going somewhere
+    e.preventDefault();
+    // log them out via ajax call to php script
+    $.ajax({
+        url : 'inc/content/logout.inc.php',
+        method : 'get',
+        dataType : 'json'
+    }).done(function(data){
+        // update ui elements
+        if(data.status == 'success'){
+            $('#login_section').css({"display":"inline-block"});
+            $('#logout_section').css({"display":"none"});                
+            // $('#message').html('<p>You have been logged out;');
+        }
+    }).fail(function(){
+        alert('SOMETHING HAS GONE WRONG!');
+    });
+    });
+
+
+// FRONTPAGE
+
+    // quote of the day
+
+    $("#quotes").ready(function() {
+        console.log('qotd loaded');
+        qotd();
+      });
+
+    $("#quotes").on("click", function(){
+        console.log('qotd click event is fired off');
+        qotd();
+    });
+
+    function qotd(){
+        $.ajax({
+            url: "https://favqs.com/api/qotd",
+            type: "application/json",
+            method: "GET"
+        })
+        .done(function(data){
+            data = displayResults(data);
+            $('#quotes').html(data);
+        })
+        .fail(function(){
+            console.log('Something went wrong when calling the API');
+        });
+
+        function displayResults(data){
+            var output = '';
+
+            // display each quote of the day and its author
             output += '<div class="border border-info rounded m-4 p-4 bg-white shadow">';
             output += '<div class="row"><div class="col-2">';
             output += '<i class="fas fa-pen-nib fa-9x text-light pl-2 pt-3"></i></div>';
@@ -37,6 +107,9 @@ $(document).ready(function () {
 
             return output;
         };
+    }
+
+// REGISTER    
     
     // enable submit button
     $("input[type='submit']").removeAttr('disabled');
@@ -111,17 +184,11 @@ $(document).ready(function () {
 
             evt.preventDefault();
 
-            // $('#' + errors[0][0]).focus();
         }
         
     });
 
-    // bind to fields for blur/tab
-    // $('#first').on('blur',function(){
-    // });
-
-    
-});
+}); 
 
 
 

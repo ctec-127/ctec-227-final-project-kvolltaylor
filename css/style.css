@@ -10,6 +10,10 @@
     background: linear-gradient(#ffffff, #f8f9fa);
 }
 
+.gradient-background-3 {
+    background: linear-gradient(#ffffff, #d0dcdf);
+}
+
 
 legend {
     width:inherit; /* To override the full 100% width that bootstrap sets */
@@ -48,10 +52,17 @@ a.underline_link a:hover {
     text-decoration: underline;
 }
 
+#showPassword2 {
+    text-decoration: underline;
+}
+
 .quote_style {
     line-height: 200%;
 }
 
+.sm-input {
+    max-width: 25%;
+}
 .lg-input {
     max-width: 95%;
 }
@@ -91,19 +102,15 @@ span.ui-slider-handle:active {
         border-radius: 0 3px 3px 0;
 }
 
-/* #quotes {
-	background-image: url("../img/kelly-sikkema-1638623-unsplash.png") no-repeat center;
-	background-color: #f8f9fa;
-	background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-} */
-
-#login, #logout, #nav_login, #nav_logout {
-    /* display: none; */
+#quote_jumbotron {
+    margin-top: -3em;
 }
 
-#submit {
-    data-dismiss: none;
+#front_main {
+    margin-bottom: 3em;
+    padding-bottom: 0;
+}
+
+#login, #logout {
+    
 }

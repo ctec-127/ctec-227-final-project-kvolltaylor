@@ -2,9 +2,9 @@
 
     session_start(); 
 
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        $_SESSION['email'] = $_POST['email'];
-    }  
+    // if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    //     $_SESSION['email'] = $_POST['email'];
+    // }  
 
 ?>
 
@@ -40,6 +40,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src='js/jrnl.js'></script> 
-    <script src="js/login.js"></script>
+    
 </body>
 </html>

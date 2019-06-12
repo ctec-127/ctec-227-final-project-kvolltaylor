@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-     <!-- stylesheets -->
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -103,6 +103,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
+                                            <!-- Legal mumbojumbo was generated using http://legalipsum.com/ -->
                                             <p>Each Recipient is solely responsible for determining the appropriateness of using or selling of Modifications made by that Contributor with its distribution of this License, each Contributor harmless for any version ever published by the GNU Library General Public License applies to most effectively convey the exclusion of warranty; keep intact the notices that do not include additions to that Work or a Modified Version. Permissions for Redistribution of the Derived Work must provide new instructions on how to obtain the complete agreement concerning subject matter in Your Modifications, if you become the Current Maintainer of the Work or Derivative Works (as that term is defined in 48 C.F.R.)</p>
                                             <p>Agreement is invalid or unenforceable under any other provision. You may use the Work or that you cannot import information which is available under terms compatible with the source code. And you must (i) comply with any term(s) of this License will be useful, but WITHOUT ANY WARRANTY. A Package modified in accordance with FAR 12.211 (Technical Data) and 12.212 (Computer Software) and, for Department of Defense purchases, DFAR 252.227-7015 (Technical Data -- Commercial Items) and 227.7202-3 (Rights in Commercial Computer Software Documentation).</p>
                                             <p>Standard Version, under the terms of the software is covered only if the two goals of preserving the free software Package may be published from time to time. As a condition to exercising the rights granted by such Contributor by reason of any subsequent version of this test package and to related Covered Code. You must give the recipients may install the Licensed Program in a commercial product offering should do so only on Your own copyright statement to Your modifications and may be distributed and/or modified under the terms of Section 3.1-3.5 have been validly granted by this License; they are outside its scope.</p>
