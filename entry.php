@@ -79,7 +79,8 @@
                         <i class="far fa-angry d-none d-xl-inline fa-3x"></i>
                     </div>
                 </div>
-                <div id="slider" name="slider" class="mx-4 ui-widget-overlay lg-input"></div>
+                <div type="text" id="slider" name="slider" class="mx-4 ui-widget-overlay lg-input"></div>
+                <input type="hidden" name="mood" id="mood">
                 <br><br>
             </div>
             </fieldset>
@@ -221,19 +222,42 @@
 
 
     <script>
+    $(document).ready(function() {
+
         $(function(){
             $("#slider").slider();
         });
 
-        $("#slider").on("submit", function (event, ui) {
+        $("#slider").on("slidechange", function (event, ui) {
             event.preventDefault();
-            console.log('slider on submit fired off')
+            console.log('slider on change fired off');
             console.log($('#slider').slider("option","value"));
 
             var sliderVal = $('#slider').slider("option","value");
-            console.log(sliderVal.val())
+            console.log(sliderVal);
 
-            // function sliderValue(){
+            var mood = $('#mood').attr('value',sliderVal);
+            console.log(mood.val());
+
+        });
+
+        // $("#slider").on("change", function (event, ui) {
+        //     var sliderVal = $('#slider').slider("option","value");
+        //     if (($('#slider').slider("option","value")) <= 25) {
+        //             $('.fa-sad-tear').css({"color" : "#17a2b8"});
+        //         } else if ($('#slider').slider("option","value") <= 50) {
+        //             $('.far fa-meh-blank').css({"color" : "#17a2b8"});
+        //         } else if (sliderVal <= 75) {
+        //             $('.far fa-grin d-none d-xl-inline fa-3x').css({"color" : "#17a2b8"});
+        //         }else if (sliderVal <= 100) {
+        //             $('.far fa-angry').css({"color" : "#17a2b8"});
+        //         }
+        // });
+    });
+    </script>
+
+    
+<!-- // function sliderValue(){
             //     $.ajax({
             //         type: 'POST',
             //         url: 'inc/content/session-backend-slider.inc.php',
@@ -247,9 +271,7 @@
             //     });
             // }
             
-            sliderValue();
-        });
-    </script>
+            // sliderValue(); -->
     
         <!-- // // Slider: Initializer
         // $( ".selector" ).slider({

@@ -1,33 +1,37 @@
 <?php
 
-    session_start();
-
     if ($_SERVER['REQUEST_METHOD']=="POST") {
 
         $free_write = $db->real_escape_string($_POST['free_write']);
 
-        // $mood_slider = $db->real_escape_string($_POST['slider']);
+        $mood_slider = $db->real_escape_string($_POST['mood']);
 
         $tags = $db->real_escape_string($_POST['tags']);
 
         $email = $_SESSION['email'];
 
         $id_sql = "SELECT user_id FROM user WHERE email='$email'";
-        $id_result = $db->query($id_sql);
-        while ($row = $id_result->fetch_assoc()) {
-            echo "<h1>{$row['user_id']}</h1>";
-        };
+        // $id_result = $db->query($id_sql);
+        // $id = '';
+        // while ($row = $id_result->fetch_assoc()) {
+        //     $id = "{$row['user_id']}";
+        // };
 
-        echo $free_write;
-        echo "<br>";
-        echo $tags;
-        echo "<br>";
-        echo $id_result;
+        // echo $free_write;
+        // echo "<br>";
+        // echo $mood_slider;
+        // echo "<br>";
+        // echo $tags;
+        // echo "<br>";
+        // echo $id;
+        
 
 
         //sql insert new data into the user table
-        $sql = "INSERT INTO $db_entry_table (`text`,tags,`date`,user_id) 
-                        VALUES ('$free_write','$tags',CURDATE(),$id)";
+        $sql = "INSERT INTO $db_entry_table (`text`,`mood`,tags,`date`) 
+                        VALUES ('$free_write','$mood_slider''$tags',CURDATE()) 
+                        AND SELECT user_id from $db_user_table 
+                        WHERE email='$email'";
 
         $result = $db->query($sql);
 
