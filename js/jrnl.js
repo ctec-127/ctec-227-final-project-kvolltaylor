@@ -3,7 +3,7 @@
 
 $(document).ready(function () {
 
-// NAVBAR
+    // NAVBAR
 
     // Modal: login Jquery and AJAX
     $("#login_popup").on("submit", function(e){
@@ -26,7 +26,9 @@ $(document).ready(function () {
                 $('#login_msg').html('Welcome back, ' + response + '!');
                 $('#login_entryTitle').html('You are currently logged in');
                 $('#login_entryTitle').css({"margin-left":"15%"});
-                $('#modal-body').html('');
+                $('#modal-body').html('<div id="modal_image"><img src="img/aaron-burden-64849-unsplash.jpg" width="100%" alt="photo of pen and diary"></div>');
+                $('#login_section').css({"display":"none"});
+                $('#logout_section').css({"display":"inline-block"});  
             },
             error: function(){
                 console.log("Error with submitForm function");
@@ -59,7 +61,7 @@ $(document).ready(function () {
     });
 
 
-// FRONTPAGE
+    // FRONTPAGE
 
     // quote of the day
 
@@ -109,7 +111,7 @@ $(document).ready(function () {
         };
     }
 
-// REGISTER    
+    // REGISTER    
     
     // enable submit button
     $("input[type='submit']").removeAttr('disabled');
@@ -186,6 +188,67 @@ $(document).ready(function () {
 
         }
         
+    });
+
+    // ENTRY
+
+    // bind anxiety/panic attack form input display to radio button events
+    $('#apy').change(function() {
+        if(this.checked) {
+            $('#event_toggle').css({"display":"inline-block"});
+            $('#ap_entry').removeClass("collapse");
+                        
+        };
+    });
+    $('#apn').change(function() {
+        if(this.checked) {
+            $('#event_toggle').css({"display":"none"});
+            $('#ap_entry').addClass("collapse");
+        };
+    });
+
+    $(function(){
+        $("#slider").slider();
+    });
+
+    $("#slider").on("slidechange", function (event, ui) {
+        event.preventDefault();
+        console.log('slider on change fired off');
+        console.log($('#slider').slider("option","value"));
+
+        var sliderVal = $('#slider').slider("option","value");
+        console.log(sliderVal);
+
+        var mood = $('#mood').attr('value',sliderVal);
+        console.log(mood.val());
+
+        // cannot use if else statements here to make face light up
+        // must use seperate if statements to check new conditions as slider moves
+        if (sliderVal > 0){
+            $('.fa-sad-tear').css({"color":"#17a2b8"});
+            $('.fa-meh-blank').css({"color":"#868e96"});
+            $('.fa-grin').css({"color":"#868e96"});
+            $('.fa-angry').css({"color":"#868e96"});
+            
+        } 
+        if (sliderVal > 19){
+            $('.fa-sad-tear').css({"color":"#868e96"});
+            $('.fa-meh-blank').css({"color":"#17a2b8"});
+            $('.fa-grin').css({"color":"#868e96"});
+            $('.fa-angry').css({"color":"#868e96"});
+        }
+        if (sliderVal > 49){
+            $('.fa-sad-tear').css({"color":"#868e96"});
+            $('.fa-meh-blank').css({"color":"#868e96"});
+            $('.fa-grin').css({"color":"#17a2b8"});
+            $('.fa-angry').css({"color":"#868e96"});
+        }
+        if (sliderVal > 79){
+            $('.fa-sad-tear').css({"color":"#868e96"});
+            $('.fa-meh-blank').css({"color":"#868e96"});
+            $('.fa-grin').css({"color":"#868e96"});
+            $('.fa-angry').css({"color":"#17a2b8"});
+        }
     });
 
 }); 

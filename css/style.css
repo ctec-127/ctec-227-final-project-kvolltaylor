@@ -11,7 +11,7 @@
 }
 
 .gradient-background-3 {
-    background: linear-gradient(#ffffff, #d0dcdf);
+    background: linear-gradient(#ffffff 3em, #dce2e4 8em, #d0dcdf 12em);
 }
 
 
@@ -20,6 +20,8 @@ legend {
     padding:0 10px; 
     border-bottom:none;
 }
+
+
 
 .center {
     margin: auto;
@@ -113,4 +115,11 @@ span.ui-slider-handle:active {
 
 #login, #logout {
     
+}
+
+#event_toggle {
+    display: none;
+}
+
+#ap_entry {
 }

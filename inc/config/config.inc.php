@@ -17,5 +17,10 @@ $db_db_name = 'journal';
 //table names
 $db_user_table = 'user';
 $db_entry_table = 'entry';
+$db_tags_table = 'tags';
+$db_entry_tag_table = "entry_tag";
+$db_event_table = 'event';
+$db_location_tag_table = "location_tag";
+$db_event_location_tag_table = "event_location_tag";
 
 ?>
