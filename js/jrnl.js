@@ -3,7 +3,19 @@
 
 $(document).ready(function () {
 
+
     // NAVBAR
+
+    //  Login/logout: page display css rules
+    if (top.location.pathname === '/ctec-227-final-project-kvolltaylor/entry.php'){
+        $("#login_section").css({"display":"none"});
+        $("#logout_section").css({"display":"inline-block"});
+    };
+
+    if (top.location.pathname === '/ctec-227-final-project-kvolltaylor/read-entries.php'){
+        $("#login_section").css({"display":"none"});
+        $("#logout_section").css({"display":"inline-block"});
+    };
 
     // Modal: login Jquery and AJAX
     $("#login_popup").on("submit", function(e){
@@ -14,13 +26,12 @@ $(document).ready(function () {
 
 
     function submitForm(){
-        console.log('submitForm function is fired off')
+        console.log('submitForm function is fired off');
         $.ajax({
         type: 'POST',
         url: 'inc/content/session-backend.inc.php',
         data: $('#login_popup').serialize(),
             success: function(response){
-                console.log('From Login' + response);
                 $('#submit').css({"display":"none"});
                 $('#login_msg').css({"color":"#28a745", "font-size":"1.5em", "font-weight":"bold","margin-right":"15%"});
                 $('#login_msg').html('Welcome back, ' + response + '!');
@@ -35,31 +46,32 @@ $(document).ready(function () {
             }
         });
 
-    }
+    };
 
     // Navbar: logout
 
     // logout button clicked
     $('#logout_section').on('click',function(e){
-    // prevent anchor link from going somewhere
-    e.preventDefault();
-    // log them out via ajax call to php script
-    $.ajax({
-        url : 'inc/content/logout.inc.php',
-        method : 'get',
-        dataType : 'json'
-    }).done(function(data){
-        // update ui elements
-        if(data.status == 'success'){
-            $('#login_section').css({"display":"inline-block"});
-            $('#logout_section').css({"display":"none"});                
-            // $('#message').html('<p>You have been logged out;');
-        }
-    }).fail(function(){
-        alert('SOMETHING HAS GONE WRONG!');
+        // prevent anchor link from going somewhere
+        e.preventDefault();
+        // log them out via ajax call to php script
+        $.ajax({
+            url : 'inc/content/logout.inc.php',
+            method : 'get',
+            dataType : 'json'
+        }).done(function(data){
+            // update ui elements
+            if(data.status == 'success'){
+                $('#login_section').css({"display":"inline-block"});
+                $('#logout_section').css({"display":"none"});                
+                alert('You have signed out!');
+                window.location = window.location;
+            }
+        }).fail(function(){
+            alert('SOMETHING HAS GONE WRONG!');
+        });
+    
     });
-    });
-
 
     // FRONTPAGE
 
@@ -205,50 +217,6 @@ $(document).ready(function () {
             $('#event_toggle').css({"display":"none"});
             $('#ap_entry').addClass("collapse");
         };
-    });
-
-    $(function(){
-        $("#slider").slider();
-    });
-
-    $("#slider").on("slidechange", function (event, ui) {
-        event.preventDefault();
-        console.log('slider on change fired off');
-        console.log($('#slider').slider("option","value"));
-
-        var sliderVal = $('#slider').slider("option","value");
-        console.log(sliderVal);
-
-        var mood = $('#mood').attr('value',sliderVal);
-        console.log(mood.val());
-
-        // cannot use if else statements here to make face light up
-        // must use seperate if statements to check new conditions as slider moves
-        if (sliderVal > 0){
-            $('.fa-sad-tear').css({"color":"#17a2b8"});
-            $('.fa-meh-blank').css({"color":"#868e96"});
-            $('.fa-grin').css({"color":"#868e96"});
-            $('.fa-angry').css({"color":"#868e96"});
-            
-        } 
-        if (sliderVal > 19){
-            $('.fa-sad-tear').css({"color":"#868e96"});
-            $('.fa-meh-blank').css({"color":"#17a2b8"});
-            $('.fa-grin').css({"color":"#868e96"});
-            $('.fa-angry').css({"color":"#868e96"});
-        }
-        if (sliderVal > 49){
-            $('.fa-sad-tear').css({"color":"#868e96"});
-            $('.fa-meh-blank').css({"color":"#868e96"});
-            $('.fa-grin').css({"color":"#17a2b8"});
-            $('.fa-angry').css({"color":"#868e96"});
-        }
-        if (sliderVal > 79){
-            $('.fa-sad-tear').css({"color":"#868e96"});
-            $('.fa-meh-blank').css({"color":"#868e96"});
-            $('.fa-grin').css({"color":"#868e96"});
-            $('.fa-angry').css({"color":"#17a2b8"});
-        }
     });
 
 }); 

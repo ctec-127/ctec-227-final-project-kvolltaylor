@@ -1,5 +1,7 @@
 <?php
+
     session_start();
+    // session_regenerate_id(true); 
 
     if (isset($_POST['email'])) {
 
@@ -18,7 +20,9 @@
                 echo $row['first_name'];
                 $_SESSION['user_id'] = $row['user_id'];
             };
-        };
+        }; 
+        
     }
+
 
 ?>

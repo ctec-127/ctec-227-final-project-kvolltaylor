@@ -1,15 +1,15 @@
-        <!-- modal pop-up for login email and password -->
-        <div class="modal fade" id="login_entry" tabindex="-1" role="dialog" aria-labelledby="login_entryTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header gradient-background">
-                        <h5 class="modal-title" id="login_entryTitle">Log In</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Cancel">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div> <!-- end div modal header -->
-                    <!-- begin form -->
-                    <form name="login_popup" id="login_popup" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+    <!-- modal pop-up for login email and password -->
+    <div class="modal fade" id="login_entry" tabindex="-1" role="dialog" aria-labelledby="login_entryTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header gradient-background">
+                    <h5 class="modal-title" id="login_entryTitle">Log In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cancel">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div> <!-- end div modal header -->
+                <!-- begin form -->
+                <form name="login_popup" id="login_popup" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
                     <input type="hidden" name="action" value="login1">
                     <div id="modal-body" class="modal-body">
                         <fieldset class="border border-secondary rounded px-2 pt-2 pb-4 mb-4 shadow bg-white">
@@ -31,8 +31,8 @@
                         <span id="login_msg"></span>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div> <!-- end div modal footer -->
-                    </form> <!-- end form -->
-                </div> <!-- end div modal content -->
-            </div> <!-- end div modal dialogue -->
-        </div> <!-- end div modal fade -->
+                </form> <!-- end form -->
+            </div> <!-- end div modal content -->
+        </div> <!-- end div modal dialogue -->
+    </div> <!-- end div modal fade -->
     <!-- end modal -->

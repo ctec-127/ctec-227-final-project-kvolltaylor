@@ -1,3 +1,19 @@
+body {
+
+    /* background pattern adapted and color-adjusted from work by lea verou at https://leaverou.github.io/css3patterns/ */
+    background-color: #f8f9fa;
+    background-image:
+        radial-gradient(circle at 100% 150%, #f8f9fa 24%, white 25%, white 28%, #f8f9fa 29%, #f8f9fa 36%, white 36%, white 40%, transparent 40%, transparent),
+        radial-gradient(circle at 0    150%, #f8f9fa 24%, white 25%, white 28%, #f8f9fa 29%, #f8f9fa 36%, white 36%, white 40%, transparent 40%, transparent),
+        radial-gradient(circle at 50%  100%, white 10%, #f8f9fa 11%, #f8f9fa 23%, white 24%, white 30%, #f8f9fa 31%, #f8f9fa 43%, white 44%, white 50%, #f8f9fa 51%, #f8f9fa 63%, white 64%, white 71%, transparent 71%, transparent),
+        radial-gradient(circle at 100% 50%, white 5%, #f8f9fa 6%, #f8f9fa 15%, white 16%, white 20%, #f8f9fa 21%, #f8f9fa 30%, white 31%, white 35%, #f8f9fa 36%, #f8f9fa 45%, white 46%, white 49%, transparent 50%, transparent),
+        radial-gradient(circle at 0    50%, white 5%, #f8f9fa 6%, #f8f9fa 15%, white 16%, white 20%, #f8f9fa 21%, #f8f9fa 30%, white 31%, white 35%, #f8f9fa 36%, #f8f9fa 45%, white 46%, white 49%, transparent 50%, transparent);
+    background-size: 100px 50px;
+}
+
+.wh-bkgd {
+    background-color: #ffffff;
+}
 .gfont {
     font-family: 'Sedgwick Ave', cursive;
 }
@@ -21,10 +37,13 @@ legend {
     border-bottom:none;
 }
 
-
-
 .center {
     margin: auto;
+}
+
+.center2 {
+    margin: auto;
+    width: 100%;
 }
 
 ul li.error::before {
@@ -113,8 +132,8 @@ span.ui-slider-handle:active {
     padding-bottom: 0;
 }
 
-#login, #logout {
-    
+#logout_section {
+   display: none; 
 }
 
 #event_toggle {

@@ -1,4 +1,4 @@
-<div class="col-sm-12">
+<div class="col-sm-12 wh-bkgd">
     <div class="pb-4 row">
         <div class="my-4 text-center col-12">
             <h1 class="display-2">Welcome to <span class="gfont">Jrnl</span></h1>
@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <div id="front_main" class="row border border-secondary rounded mt-4">
+    <div id="front_main" class="row border border-secondary rounded mt-4 mx-4">
         <div class="col m-4 btn btn-outline-success p-4 text-center">
             <a href='#' id="fp_btn_1" class='nude_link' data-toggle="modal" data-target="#login_entry">
                 <div class='nude_link py-2'><h3>Already have a Jrnl?</h3></div>
@@ -26,7 +26,7 @@
         </div>
     </div>
     <!-- quotes -->
-    <div id="quote_jumbotron">
+    <div id="quote_jumbotron" class="center">
         <div class="jumbotron center gradient-background-2 mb-4 d-none d-lg-inline-block">
             <div id="quotes">
             </div>

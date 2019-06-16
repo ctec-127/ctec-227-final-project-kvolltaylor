@@ -1,8 +1,6 @@
 <?php
-
   require_once "db/mysqli_connect.inc.php";
   require_once "config/config.inc.php";
-
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,10 +31,8 @@
                 <a href="#" id="nav_login" name="nav_login" class='text-secondary' data-toggle="modal" data-target="#login_entry"><i class="fas fa-sign-in-alt mx-2 text-success"></i>   Log In</a>
             </div>
         </div>
-
         <!-- modal login -->
         <?php require_once 'content/login-modal.inc.php' ?>
-
         <!-- LOGOUT BUTTON -->
         <div class='d-inline'>
             <div id="logout_section">
