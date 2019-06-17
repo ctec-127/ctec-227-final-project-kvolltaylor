@@ -51,10 +51,30 @@
                 $result = $db->query($sql) or die($db->error);
                 while ($row = $result->fetch_assoc()) {
                     $user_id = $row['user_id'];
-                    echo "<div class='h1 text-center'><span class='small pr-1'>". $row['first_name'] . "'s </span><span class='gfont'>Jrnl</span><span class='small'> Anixety/Panic Event Entries</span></div>";
+                    echo "<div class='h1 text-center'><a href ='".$_SERVER['PHP_SELF']."' alt='Return to all entries'>";
+                    echo "<span class='small pr-1'>". $row['first_name'] . "'s </span>";
+                    echo "<span class='gfont'>Jrnl</span>";
+                    echo "<span class='small'> Anixety/Panic Event Entries</span>";
+                    echo "</a></div>";
                 }; // end while
 
-                $sql_event = "SELECT * FROM `event` WHERE user_id='$user_id' ORDER BY `event_id` DESC";
+                if (isset($_GET['tag'])) {
+                    $get_tag = $_GET['tag'];
+                    $sql_event = "SELECT * FROM `event` AS evt 
+                            INNER JOIN `event_location_tag` 
+                            ON evt.event_id = event_location_tag.event_id 
+                            INNER JOIN `location_tag` 
+                            ON location_tag.location_tag_id = event_location_tag.event_location_tag_id  
+                            WHERE user_id='$user_id' 
+                            AND location_tag.location_tag_id='$get_tag' 
+                            ORDER BY evt.event_id 
+                            DESC";
+                } else {
+                    $sql_event = "SELECT * FROM `event` 
+                              WHERE user_id='$user_id' 
+                              ORDER BY `event_id` 
+                              DESC";
+                };
                 $result_event = $db->query($sql_event) or die($db->error);
                 while ($row = $result_event->fetch_assoc()) {
                     $event_id = $row['event_id'];
@@ -70,7 +90,7 @@
 
                     echo "<div class='col-xl-9'>";
                     echo "<span class='text-info mr-4 h5'>Location Tags:</span>";          
-                    $sql_location_tags = "SELECT `location_tag`  
+                    $sql_location_tags = "SELECT `location_tag`,`event_location_tag_id`   
                                 FROM  `location_tag` 
                                 INNER JOIN `event_location_tag` 
                                 ON location_tag.location_tag_id = event_location_tag.event_location_tag_id 
@@ -80,7 +100,8 @@
 
                     while ($row2= $result_location->fetch_assoc()) {
                         $location_tag = $row2['location_tag'];
-                        echo "<span class='display-tags mr-2'>".$location_tag."</span>";
+                        $location_tag_id = $row2['event_location_tag_id'];
+                        echo "<a class='btn btn-outline-info display-tags mr-2 mb-2' href='".$_SERVER['PHP_SELF']."?tag={$location_tag_id}'>".$location_tag."</a>";
                     } // end while
                     
 

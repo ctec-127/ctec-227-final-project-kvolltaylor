@@ -123,12 +123,10 @@ a.underline_link a:hover {
 }
 
 .display-tags {
-    border: 1px solid #17a2b8;
-    background-color: #dce2e4;
-    border-radius: 3px;
-    padding: 5px;
-    line-height: 3em;
+    background-color: #eef1f1;
 }
+
+
 
 #quote_jumbotron {
     margin-top: -3em;

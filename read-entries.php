@@ -50,10 +50,29 @@
                 $result = $db->query($sql) or die($db->error);
                 while ($row = $result->fetch_assoc()) {
                     $user_id = $row['user_id'];
-                    echo "<div class='h1 text-center'><span class='small pr-1'>". $row['first_name'] . "'s </span><span class='gfont'>Jrnl</span><span class='small'> entries</span></div>";
+                    echo "<div class='h1 text-center'><a href ='".$_SERVER['PHP_SELF']."' alt='Return to all entries'>";
+                    echo "<span class='small pr-1'>". $row['first_name'] . "'s </span>";
+                    echo "<span class='gfont'>Jrnl</span><span class='small'> entries</span>";
+                    echo "</a></div>";
                 }; // end while
 
-                $sql = "SELECT * FROM `entry` WHERE user_id='$user_id' ORDER BY `entry_id` DESC";
+                if (isset($_GET['tag'])){
+                    $get_tag = $_GET['tag'];
+                    $sql = "SELECT * FROM `entry` AS ent
+                            INNER JOIN `entry_tag` 
+                            ON ent.entry_id = entry_tag.entry_id 
+                            INNER JOIN `tags` 
+                            ON tags.id = entry_tag.tag_id 
+                            WHERE user_id='$user_id' 
+                            AND tags.id='$get_tag' 
+                            ORDER BY ent.entry_id 
+                            DESC";
+                } else {
+                    $sql = "SELECT * FROM `entry` 
+                        WHERE user_id='$user_id' 
+                        ORDER BY `entry_id` 
+                        DESC";
+                };
                 $result_entry = $db->query($sql) or die($db->error);
                 while ($row = $result_entry->fetch_assoc()) {
                     $entry_id = $row['entry_id'];
@@ -77,7 +96,7 @@
                         };
                         echo "</div>";
                     }else{
-                        echo "<div class='noface'><i class='fas fa-exclamation-circle text-secondary fa-7x p-2'></i></div>";
+                        echo "<div class='noface'><i class='fas fa-exclamation-circle text-secondary fa-7x p-2 rounded-circle bg-white border'></i></div>";
                     }
                         // end if mood
 
@@ -89,11 +108,11 @@
                     echo "</div>"; // end col-9
                     echo "</div>"; // end row
                     echo "<div class='row my-4'>";
-                    echo "<div class='col-xl-7 ml-2'>";
+                    echo "<div class='col-xl-7 ml-lg-4'>";
                     echo "<span class='text-info mr-4 h5'>Bullet Tags:</span>";
                     echo "<span class='ml-4'>";
                                 
-                    $sql_tags = "SELECT `tag`  
+                    $sql_tags = "SELECT `tag`,`tag_id`   
                                 FROM  `tags` 
                                 INNER JOIN `entry_tag` 
                                 ON tags.id = entry_tag.tag_id 
@@ -103,17 +122,18 @@
 
                     while ($row2 = $result->fetch_assoc()) {
                         $tag = $row2['tag'];
-                        echo "<span class='display-tags mr-2'>".$tag."</span>";
+                        $tag_id = $row2['tag_id'];
+                        echo "<a class='btn btn-outline-info display-tags mr-2 mb-2' href='".$_SERVER['PHP_SELF']."?tag={$tag_id}'>".$tag."</a>";
                     }; // end while
                     
                     echo "</span>";
                     echo "</div>"; // end col-9
-                    echo "<div class='col-xl-4 pt-2 px-3'>";
-                    echo "<span class='text-info mr-4 h5'>Anxiety/Panic:</span>";
+                    echo "<div class='col-xl-4 pt-2 px-3 ml-lg-4'>";
+                    echo "<span class='text-info h5 mr-4'>Anxiety/Panic:</span>";
                     $apyn = $row['apyn'];
-                    if ($apyn = 'y'){
+                    if ($apyn == 'y'){
                         echo "<span class='h5 text-secondary rounded border ml-2 p-1 gradient-background-3'>Yes</span>";
-                    } else if ($apyn = 'n'){
+                    } else if ($apyn == 'n'){
                         echo "<span class='h5 text-secondary rounded border ml-2 p-1 gradient-background-3'>No</span>";
                     };
 

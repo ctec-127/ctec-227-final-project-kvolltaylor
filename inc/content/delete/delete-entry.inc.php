@@ -7,7 +7,7 @@
 
     if (isset($_GET['id'])) {
 
-        echo "GET FIRED OFF";
+        // echo "GET FIRED OFF";
         $id = $_GET['id'];
 
         $sql_delete_entry = "DELETE FROM `entry` WHERE entry_id='$id'";
