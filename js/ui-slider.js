@@ -1,5 +1,6 @@
 $(function(){
-    $("#slider").slider();
+    // $("#slider").slider();
+    $(".mood-slider").slider();
 });
 
 $("#slider").on("slidechange", function (event, ui) {

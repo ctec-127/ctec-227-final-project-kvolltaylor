@@ -17,6 +17,16 @@ $(document).ready(function () {
         $("#logout_section").css({"display":"inline-block"});
     };
 
+    if (top.location.pathname === '/ctec-227-final-project-kvolltaylor/read-events.php'){
+        $("#login_section").css({"display":"none"});
+        $("#logout_section").css({"display":"inline-block"});
+    };
+
+    if (top.location.pathname === '/ctec-227-final-project-kvolltaylor/register.php'){
+        $("#login_section").css({"display":"inline-block"});
+        $("#logout_section").css({"display":"none"});
+    };
+
     // Modal: login Jquery and AJAX
     $("#login_popup").on("submit", function(e){
         console.log('login_popup submit is fired off');

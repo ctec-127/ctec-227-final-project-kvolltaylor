@@ -81,7 +81,7 @@
                                 <i class="far fa-angry d-none d-xl-inline fa-3x"></i>
                             </div>
                         </div>
-                        <div id="slider" class="mx-4 ui-widget-overlay lg-input"></div>
+                        <div id="slider" class="mood-slider mx-4 ui-widget-overlay lg-input"></div>
                         <input type="hidden" name="mood" id="mood">
                         <br><br>
                     </div>

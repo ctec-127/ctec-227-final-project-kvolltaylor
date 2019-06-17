@@ -18,8 +18,8 @@
                     <a class="dropdown-item" href="entry.php">Make an Entry</a>
                     <div class="dropdown-divider">
                     </div>
-                    <a class="dropdown-item" href="#">Read my Entries</a>
-                    <a class="dropdown-item" href="#">Read my Anxiety Entries</a>
+                    <a class="dropdown-item" href="read-entries.php">Read my Entries</a>
+                    <a class="dropdown-item" href="read-events.php">Read my Anxiety Entries</a>
                 </div>
             </li>
         </ul>

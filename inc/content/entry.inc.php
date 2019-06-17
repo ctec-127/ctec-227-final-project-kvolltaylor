@@ -25,10 +25,14 @@
             for ($i=0; $i < count($tags_array); $i++) {
                 $tag = $db->real_escape_string($tags_array[$i]);
     
-                $sql_tags = "INSERT INTO $db_tags_table (`tag`) VALUES ('$tag')";
+                $sql_tags = "INSERT INTO $db_tags_table (`tag`) 
+                             VALUES ('$tag')";
                 $result = $db->query($sql_tags);
     
-                $sql_entry_tags = "INSERT INTO $db_entry_tag_table (`entry_id`,`tag_id`) SELECT MAX(entry_id),id FROM $db_entry_table,$db_tags_table WHERE tag='$tag'";
+                $sql_entry_tags = "INSERT INTO $db_entry_tag_table (`entry_id`,`tag_id`) 
+                                   SELECT MAX(entry_id),id 
+                                   FROM $db_entry_table,$db_tags_table 
+                                   WHERE tag='$tag'";
                 $result = $db->query($sql_entry_tags);
             }
     
@@ -48,7 +52,7 @@
 
             // sql to insert new data into the event table
             $sql_2 = "INSERT INTO $db_event_table (`anxiety_level`,`event_time`,`notes`,`date`,`user_id`) 
-                VALUES ('$anxiety_level','$event_time','$notes',CURDATE(),'$user_id')";
+                      VALUES ('$anxiety_level','$event_time','$notes',CURDATE(),'$user_id')";
             $result = $db->query($sql_2);
 
              // sql to insert tags into tags table
@@ -57,11 +61,15 @@
                 for ($i=0; $i < count($location_tags_array); $i++) {
                     $location_tag = $db->real_escape_string($location_tags_array[$i]);
         
-                    $sql_location_tags = "INSERT INTO $db_location_tag_table (`location_tag`) VALUES ('$location_tag')";
+                    $sql_location_tags = "INSERT INTO $db_location_tag_table (`location_tag`) 
+                                          VALUES ('$location_tag')";
                     $result = $db->query($sql_location_tags);
 
         
-                    $sql_event_tags = "INSERT INTO $db_event_location_tag_table (`event_id`,`event_location_tag_id`) SELECT MAX(event_id),location_tag_id FROM $db_event_table,$db_location_tag_table WHERE location_tag='$location_tag'";
+                    $sql_event_tags = "INSERT INTO $db_event_location_tag_table (`event_id`,`event_location_tag_id`) 
+                                       SELECT MAX(event_id),location_tag_id 
+                                       FROM $db_event_table,$db_location_tag_table 
+                                       WHERE location_tag='$location_tag'";
                     $result = $db->query($sql_event_tags);
                 }
         
