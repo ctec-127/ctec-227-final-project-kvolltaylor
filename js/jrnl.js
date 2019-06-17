@@ -1,6 +1,6 @@
-// javascript for JRNL
+// js file for JRNL
 
-
+// Jquery
 $(document).ready(function () {
 
 
@@ -196,6 +196,14 @@ $(document).ready(function () {
             errors.push(['tc','Please agree to terms and conditions']);
         };
 
+        // check if password entry matches verify password entry
+        $('#err6').remove();
+        if($('#pw').val() !== $('#pw_verify')) {
+            $('#pw_verify').after('<span id="err6" class="text-danger"> verification must match</span>');
+            flag = true;
+            errors.push(['pw_verify', 'Password entries must match'])
+        }
+
         // error bucket and form submission prevent
         if (flag) {
             var errorBucket = $('.errors');
@@ -219,6 +227,8 @@ $(document).ready(function () {
         if(this.checked) {
             $('#event_toggle').css({"display":"inline-block"});
             $('#ap_entry').removeClass("collapse");
+            $('#anxietypanic').removeClass('bg-white');
+            $('#anxietypanic').addClass('gradient-background-3');
                         
         };
     });
@@ -226,10 +236,14 @@ $(document).ready(function () {
         if(this.checked) {
             $('#event_toggle').css({"display":"none"});
             $('#ap_entry').addClass("collapse");
+            $('#anxietypanic').removeClass('gradient-background-3');
+            $('#anxietypanic').addClass('bg-white');
         };
     });
 
 }); 
+
+
 
 
 

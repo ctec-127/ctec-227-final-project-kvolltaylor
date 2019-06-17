@@ -28,7 +28,7 @@
         <!-- LOGIN BUTTON -->
         <div class='d-inline'>
             <div id="login_section">
-                <a href="#" id="nav_login" name="nav_login" class='text-secondary' data-toggle="modal" data-target="#login_entry"><i class="fas fa-sign-in-alt mx-2 text-success"></i>   Log In</a>
+                <a href="#" id="nav_login" name="nav_login" class='text-secondary' data-toggle="modal" data-target="#login_entry"><i class="fas fa-sign-in-alt mx-2 text-info"></i>   Log In</a>
             </div>
         </div>
         <!-- modal login -->

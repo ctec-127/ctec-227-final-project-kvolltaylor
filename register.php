@@ -21,7 +21,7 @@
     <div class='containter'>
 
         <!-- div -->
-        <div class='col-sm-8 center'>
+        <div class='col-sm-9 center'>
 
         <!-- navbar -->
         <?php require_once 'inc/navbar.inc.php' ?>
@@ -48,13 +48,13 @@
                                 <!-- First Name -->
                                 <label for="first" class="ml-4">First Name</label>
                                 <br>
-                                <input type="text" id="first" name="first" maxlength="20" size="20" class="ml-4">
+                                <input type="text" id="first" name="first" maxlength="20" class="ml-4">
                                 <br><br>
                                 
                                 <!-- Last Name -->
                                 <label for="last" class="ml-4">Last Name</label>
                                 <br>
-                                <input type="text" id="last" name="last" maxlength="20" size="20" class="ml-4">
+                                <input type="text" id="last" name="last" maxlength="20" class="ml-4">
                                 <br><br>
                                 
                             </fieldset>
@@ -65,7 +65,7 @@
                                 <!-- Email -->
                                 <label class="ml-4" for="email" >Address</label>
                                 <br>
-                                <input class="ml-4" type="email" name="email" id="email" maxlength="70" size="70">
+                                <input class="ml-4" type="email" name="email" id="email" maxlength="150">
                                 <br><br>
                             
                             </fieldset>
@@ -78,8 +78,16 @@
                                     Create a password between 8 and 30 characters long
                                 </p>
                                 <label for="pw" class="ml-4">Password</label>
+                                <a href="##" id="showPassword2" class="pw_show font-italic ml-2" onclick="showPassword2();">Show Password</a>
+                            <br>
                                 <br>
-                                <input type="password" id="pw" name="pw" minlength='8' maxlength="30" size="30" class="ml-4">
+                                <input type="password" id="pw" name="pw" minlength='8' maxlength="100" class="ml-4">
+                                <br><br>
+                                <label for="pw_verify" class="ml-4">Verify Password</label>
+                                <a href="###" id="showPassword3" class="pw_show font-italic ml-2" onclick="showPassword3();">Show Password</a>
+                            <br>
+                                <br>
+                                <input type="password" id="pw_verify" name="pw_verify" minlength='8' maxlength="100" class="ml-4">
                                 <br><br>
 
                             </fieldset>
@@ -138,12 +146,45 @@
             
         </div> <!-- end div containing form -->
 
+        <!-- footer -->
+        <?php require_once 'inc/footer.inc.php' ?>
+
     </div> <!-- end container class div -->
 
     <!-- javascript -->
     <script src="js/jquery-3.3.1.min.js"></script> 
     <script src="js/bootstrap.min.js"></script>
     <script src='js/jrnl.js'></script>
+
+    <script>
+        // js function to show or hide the user's password on register page
+        function showPassword2() {
+            let passwordField = document.getElementById('pw');
+            let showPassword = document.getElementById('showPassword2');
+        
+            if (showPassword.innerHTML === 'Show Password') {
+                showPassword.innerHTML = 'Hide Password';
+                passwordField.type = 'text';
+            } else if (showPassword.innerHTML === 'Hide Password') {
+                passwordField.type = 'password';
+                showPassword.innerHTML = 'Show Password';
+            }
+        }; // end showPassword2 function
+
+        // js function to show or hide the user's password for verify
+        function showPassword3() {
+        let passwordField = document.getElementById('pw_verify');
+        let showPassword = document.getElementById('showPassword3');
+    
+        if (showPassword.innerHTML === 'Show Password') {
+            showPassword.innerHTML = 'Hide Password';
+            passwordField.type = 'text';
+        } else if (showPassword.innerHTML === 'Hide Password') {
+            passwordField.type = 'password';
+            showPassword.innerHTML = 'Show Password';
+        }
+        }; // end showPassword2 function
+    </script>
 
 </body>
 </html>

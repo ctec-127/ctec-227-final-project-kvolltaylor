@@ -30,7 +30,7 @@
     <div class='containter'>
 
         <!-- div -->
-        <div class='col-sm-8 center'>
+        <div class='col-sm-9 center'>
 
             <!-- navbar -->
             <?php require_once 'inc/navbar.inc.php' ?>
@@ -38,8 +38,7 @@
             <!-- sql innards -->
             <?php require_once 'inc/content/entry.inc.php' ?>
 
-            <!-- php functions -->
-            <?php require_once 'inc/functions/functions.inc.php' ?>
+            
 
             <div class="wh-bkgd pt-2">
 
@@ -63,7 +62,7 @@
                     echo "<legend class='text-info'>";
                     echo date('d M Y',strtotime($row['date']));
                     if ($row['event_time'] != 0){
-                        echo "<span class='text-dark'> at </span><span class='text-secondary'>".date('h:i a', strtotime($row['event_time']))."</span>";
+                        echo "<span class='text-dark'> at </span><span class='text-success'>".date('h:i a', strtotime($row['event_time']))."</span>";
                     }; // end if
                     echo "</legend>";
 
@@ -115,6 +114,8 @@
                     echo $row['notes'];
                     echo "</div>";
 
+                    echo "<a href='inc/content/delete/delete-event.inc.php?id={$row['event_id']}' onclick='return confirm(\"Are you sure you want to delete this?\");'><button type='button' class='custom-delete ml-4 mb-4'>Delete</button></a>";
+
                     echo "</fieldset>";
                 }; // end while
 
@@ -123,6 +124,9 @@
             </div> <!-- end div setting background color class-->
     
         </div> <!-- end div col-sm-8 -->
+
+        <!-- footer -->
+        <?php require_once 'inc/footer.inc.php' ?>
     
     </div> <!-- end div containter-->
     

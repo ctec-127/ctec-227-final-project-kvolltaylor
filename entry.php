@@ -30,7 +30,7 @@
     <div class='containter'>
 
         <!-- div -->
-        <div class='col-sm-8 center'>
+        <div class='col-sm-9 center'>
 
             <!-- navbar -->
             <?php require_once 'inc/navbar.inc.php' ?>
@@ -42,7 +42,7 @@
 
                 <!-- form -->
                 <fieldset class="border border-dark rounded m-2 px-4 py-2 bg-light"> 
-                <legend class="text-dark">Create an Entry for Today</legend>
+                <legend class="text-info">Create an Entry for Today</legend>
                 
                 <form name="entry_form" id="entry_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
                         
@@ -69,16 +69,16 @@
                         <br>
                         <div class="row px-4 mx-4 my-4 text-secondary">
                             <div class="col-3">
-                                <i class="far fa-sad-tear d-none d-xl-inline fa-3x"></i>
+                                <i class="far fa-sad-tear d-none d-xl-inline fa-3x rounded-circle p-1 bg-light border"></i>
                             </div>
                             <div class="col-3 mx-4">
-                                <i class="far fa-meh-blank d-none d-xl-inline fa-3x"></i>
+                                <i class="far fa-meh-blank d-none d-xl-inline fa-3x rounded-circle p-1 bg-light border"></i>
                             </div>
                             <div class="col-3 mx-4">
-                                <i class="far fa-grin d-none d-xl-inline fa-3x"></i>
+                                <i class="far fa-grin d-none d-xl-inline fa-3x rounded-circle p-1 bg-light border"></i>
                             </div>
                             <div class="col-1">
-                                <i class="far fa-angry d-none d-xl-inline fa-3x"></i>
+                                <i class="far fa-angry d-none d-xl-inline fa-3x rounded-circle p-1 bg-light border"></i>
                             </div>
                         </div>
                         <div id="slider" class="mood-slider mx-4 ui-widget-overlay lg-input"></div>
@@ -109,7 +109,7 @@
                     </fieldset>
                         
                     <!-- Anxiety/Panic Event -->
-                    <fieldset id="anxietypanic" class="p-2 border border-secondary rounded mb-4 shadow gradient-background-3">
+                    <fieldset id="anxietypanic" class="p-2 border border-secondary rounded mb-4 shadow bg-white">
                     <legend class="text-dark">Anxiety or Panic</legend>
                     <div class="pb-3 ml-4">
                         <label>Did you experience anxiety or panic today?</label>
@@ -225,6 +225,9 @@
             </div> <!-- end div setting background color class-->
 
         </div> <!-- end second div containing navbar and form -->
+
+        <!-- footer -->
+        <?php require_once 'inc/footer.inc.php' ?>
 
     </div> <!-- end container class div -->
 

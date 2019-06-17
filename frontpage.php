@@ -23,6 +23,8 @@
         <?php require_once 'inc/navbar.inc.php' ?>
         <!-- front content -->
         <?php require_once 'inc/content/front-content.inc.php' ?>
+        <!-- footer -->
+        <?php require_once 'inc/footer.inc.php' ?>
 
     </div> <!-- end container class div -->
     

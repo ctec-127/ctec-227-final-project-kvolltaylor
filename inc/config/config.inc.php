@@ -3,7 +3,7 @@
 // sets variables to display on each page without having to type it out on each fricking page
 
 // copyright
-$app_copyright = '&copy; 2019 - Katrina Voll-Taylor';
+$app_copyright = '&copy; 2019 Katrina Voll';
 
 // version
 $app_version = 0.1;

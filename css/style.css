@@ -105,19 +105,18 @@ a.underline_link a:hover {
     background-image: linear-gradient(to left, red,orange,yellow,green,blue,indigo,violet); 
 }
 
-span.ui-slider-handle:active {
-    background-color: red !important;
-}
+
 
 .bootstrap-tagsinput .tag {
     background-color:#17a2b8;
-    color: white;
+    color: #ffffff;
     border-radius: 3px;
     padding-left: 5px;
 }
 
 .bootstrap-tagsinput .tag [data-role="remove"] {
-        background-color: #e83e8c;
+        background-color: #f7aeae;
+        color: #000000;
         padding-left: 5px;
         padding-right: 5px;
         border-radius: 0 3px 3px 0;
@@ -152,14 +151,30 @@ span.ui-slider-handle:active {
 }
 
 .sad {
- color:#fac7fa ;
+    color:#fac7fa;
+    background-color: #ffffff;
 }
 .meh {
-    color: #b7b7e7 ;
+    color: #b7b7e7;
+    background-color: #ffffff;
 }
 .grin {
     color: #fafa5a;
+    background-color: #ffffff;
 }
 .angry {
     color:#f7aeae;
+    background-color: #ffffff;
+}
+
+.custom-delete {
+    border-radius: 3px;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    background-color: #ffffff;
+}
+
+.custom-delete:hover, .custom-delete:active {
+    background-color: #f7aeae;
+    color: #ffffff;
 }
