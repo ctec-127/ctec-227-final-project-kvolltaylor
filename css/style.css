@@ -178,3 +178,7 @@ a.underline_link a:hover {
     background-color: #f7aeae;
     color: #ffffff;
 }
+
+.pointer {
+    cursor: pointer;
+}
