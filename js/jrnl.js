@@ -1,4 +1,4 @@
-// js file for JRNL
+// .js jquery file for JRNL
 
 // Jquery
 $(document).ready(function () {
