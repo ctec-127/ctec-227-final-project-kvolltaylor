@@ -18,7 +18,7 @@
         <!-- modal login -->
         <?php require_once 'login-modal.inc.php' ?>
 
-        <div class="col m-4 btn btn-outline-primary p-4 text-center">
+        <div class="col m-4 btn  btn-outline-primary p-4 text-center">
             <a href='register.php' class='nude_link' id="fp_btn_2">
             <div class='nude_link py-2'><h3>New to Jrnl?</h3></div>
             <div class='nude_link py-2'>Click here to sign up for your own Jrnl</div>
