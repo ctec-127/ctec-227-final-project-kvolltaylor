@@ -26,10 +26,12 @@
         <!-- navbar -->
         <?php require_once 'inc/navbar.inc.php' ?>
 
-        <!-- sql innards -->
-        <?php require_once 'inc/content/register.inc.php'?>
-
         <div class="wh-bkgd pt-2">
+
+            <!-- sql innards -->
+            <?php require_once 'inc/content/register.inc.php'?>
+
+            <?php if ($_SERVER['REQUEST_METHOD']!="POST") { ?>
 
             <!-- form -->
                 <form name="register_form" id="register_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
@@ -78,13 +80,13 @@
                                     Create a password between 8 and 30 characters long
                                 </p>
                                 <label for="pw" class="ml-4">Password</label>
-                                <a href="##" id="showPassword2" class="pw_show font-italic ml-2" onclick="showPassword2();">Show Password</a>
+                                <a id="showPassword2" class="pw_show font-italic ml-2" onclick="showPassword2();">Show Password</a>
                             <br>
                                 <br>
                                 <input type="password" id="pw" name="pw" minlength='8' maxlength="100" class="ml-4">
                                 <br><br>
                                 <label for="pw_verify" class="ml-4">Verify Password</label>
-                                <a href="###" id="showPassword3" class="pw_show font-italic ml-2" onclick="showPassword3();">Show Password</a>
+                                <a id="showPassword3" class="pw_show font-italic ml-2" onclick="showPassword3();">Show Password</a>
                             <br>
                                 <br>
                                 <input type="password" id="pw_verify" name="pw_verify" minlength='8' maxlength="100" class="ml-4">
@@ -142,12 +144,14 @@
 
                 </form>
 
+            <?php }; ?>
+
+            <!-- footer -->
+            <?php require_once 'inc/footer.inc.php' ?>
+
             </div> <!-- end div setting background color class -->
             
         </div> <!-- end div containing form -->
-
-        <!-- footer -->
-        <?php require_once 'inc/footer.inc.php' ?>
 
     </div> <!-- end container class div -->
 

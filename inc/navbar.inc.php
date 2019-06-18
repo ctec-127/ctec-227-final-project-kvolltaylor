@@ -36,7 +36,7 @@
         <!-- LOGOUT BUTTON -->
         <div class='d-inline'>
             <div id="logout_section">
-                <a href id="nav_logout" name="nav_logout" class='text-secondary logout'><i class="fas fa-sign-out-alt mx-2 text-info"></i>   Log Out</a>
+                <a href="#" id="nav_logout" name="nav_logout" class='text-secondary logout'><i class="fas fa-sign-out-alt mx-2 text-info"></i>   Log Out</a>
             </div>
         </div>
     </div> <!-- end div navbar right -->

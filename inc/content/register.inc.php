@@ -41,7 +41,15 @@
 
             if($result){
                 // feedback to let user know everything worked
-                echo '<h1 class="text-success p-3">Yay! You created a Jrnl account!</h1>';
+                echo '<div class="bg-white">';
+                echo '<h1 class="text-success p-3 text-center">Yay! You created a <span class="gfont text-dark">Jrnl</span> account!</h1>';
+                echo '<h3 class="text-secondary p-3 text-center">';
+                echo '<a href="#" id="fp_btn_1" data-toggle="modal" data-target="#login_entry" class="text-info">Log in</a>';
+                echo ', and get started now!</h3>';
+                echo '</div>';
+
+                // modal login
+                require_once 'login-modal.inc.php';
 
                 // clear the fields for the next entry
                 unset($first);

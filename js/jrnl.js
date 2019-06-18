@@ -131,7 +131,7 @@ $(document).ready(function () {
 
             return output;
         };
-    }
+    };
 
     // REGISTER    
     
@@ -198,11 +198,14 @@ $(document).ready(function () {
 
         // check if password entry matches verify password entry
         $('#err6').remove();
-        if($('#pw').val() !== $('#pw_verify')) {
+        var pw1 = $('#pw').val();
+        var pw2 = $('#pw_verify').val();
+        if(pw1 != pw2){
             $('#pw_verify').after('<span id="err6" class="text-danger"> verification must match</span>');
             flag = true;
             errors.push(['pw_verify', 'Password entries must match'])
-        }
+        };
+
 
         // error bucket and form submission prevent
         if (flag) {
@@ -210,7 +213,7 @@ $(document).ready(function () {
             var output = '<ul class="pl-4">';
             for (let index = 0; index < errors.length; index++) {
                 output += '<li class="error">' + errors[index][1] + '</li>';
-            }
+            };
             output += '</ul>';
             errorBucket.html(output);
 

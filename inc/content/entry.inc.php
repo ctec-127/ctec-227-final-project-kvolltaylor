@@ -45,14 +45,23 @@
             // event variables
             $location_tags_string = $_POST['location_tags'];
             $location_tags_array = explode(",",$location_tags_string);
-            $anxiety_level = $db->real_escape_string($_POST['anxiety_level']);
+            if (isset($_POST['anxiety_level'])) {
+                $anxiety_level = $db->real_escape_string($_POST['anxiety_level']);
+            } else {
+                $anxiety_level = 0;
+            }
             $event_time = $db->real_escape_string($_POST['event_time']);
             $notes = $db->real_escape_string($_POST['notes']);
 
 
             // sql to insert new data into the event table
-            $sql_2 = "INSERT INTO $db_event_table (`anxiety_level`,`event_time`,`notes`,`date`,`user_id`) 
-                      VALUES ('$anxiety_level','$event_time','$notes',CURDATE(),'$user_id')";
+            $max_entry_sql = "SELECT MAX(entry_id) FROM $db_entry_table";
+            $result = $db->query($max_entry_sql);
+            while ($row = $result->fetch_assoc()) {
+                $max_entry = $row['MAX(entry_id)'];
+            };
+            $sql_2 = "INSERT INTO $db_event_table (`anxiety_level`,`event_time`,`notes`,`date`,`user_id`,`entry_id`) 
+                      VALUES ('$anxiety_level','$event_time','$notes',CURDATE(),'$user_id','$max_entry')";
             $result = $db->query($sql_2);
 
              // sql to insert tags into tags table

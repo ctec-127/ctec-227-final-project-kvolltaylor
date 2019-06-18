@@ -39,7 +39,7 @@
             <?php require_once 'inc/content/entry.inc.php' ?>
 
 
-            <div class="wh-bkgd pt-2">
+            <div class="col-12 wh-bkgd pt-2 pb-4 mb-4">
 
 
             <?php
@@ -56,6 +56,7 @@
                     echo "</a></div>";
                 }; // end while
 
+                // filtering by location tag if tag is clicked
                 if (isset($_GET['tag'])){
                     $get_tag = $_GET['tag'];
                     $sql = "SELECT * FROM `entry` AS ent
@@ -75,7 +76,7 @@
                 };
                 $result_entry = $db->query($sql) or die($db->error);
                 while ($row = $result_entry->fetch_assoc()) {
-                    $entry_id = $row['entry_id'];
+                    $entry_id = $row['entry_id'];                   
                     echo "<fieldset class='border border-dark rounded m-2 px-4 py-2 shadow bg-light'>";
                     echo "<legend class='text-info'>";
                     echo date('d M Y',strtotime($row['date']));
@@ -103,14 +104,20 @@
                     echo "</div>"; // end col-3
                     echo "<div class='col-sm-12 col-xl-10 col-md-8'>";
                     echo "<div class='border rounded border-info p-4 bg-white h-100'>";
-                    echo $row['text'];
+                    if ($row['text'] == ''){
+                            echo "<div class='notext p-3 d-inline text-center'><i class='fas fa-exclamation-circle text-light fa-5x'></i></div>";
+                    } else {
+                        echo $row['text'];
+                    };
                     echo "</div>"; // end border div
                     echo "</div>"; // end col-9
                     echo "</div>"; // end row
                     echo "<div class='row my-4'>";
-                    echo "<div class='col-xl-7 ml-lg-4'>";
-                    echo "<span class='text-info mr-4 h5'>Bullet Tags:</span>";
-                    echo "<span class='ml-4'>";
+                    echo "<div class='col-xl-2 p-xl-4'>";
+                    echo "<span class='text-info h5 pb-2'>Bullet Tags:</span>";
+                    echo "</div>"; // end col-xl-2
+                    echo "<div class='col-xl-5'>";
+                    echo "<span>";
                                 
                     $sql_tags = "SELECT `tag`,`tag_id`   
                                 FROM  `tags` 
@@ -123,24 +130,25 @@
                     while ($row2 = $result->fetch_assoc()) {
                         $tag = $row2['tag'];
                         $tag_id = $row2['tag_id'];
-                        echo "<a class='btn btn-outline-info display-tags mr-2 mb-2' href='".$_SERVER['PHP_SELF']."?tag={$tag_id}'>".$tag."</a>";
+                        echo "<a class='btn btn-outline-info display-tags mr-3 mt-3' href='".$_SERVER['PHP_SELF']."?tag={$tag_id}'>".$tag."</a>";
                     }; // end while
                     
                     echo "</span>";
-                    echo "</div>"; // end col-9
-                    echo "<div class='col-xl-4 pt-2 px-3 ml-lg-4'>";
+                    echo "</div>"; // end col-xl-5
+                    echo "<div class='col-xl-4 pt-2 px-3 ml-xl-4 mt-2'>";
                     echo "<span class='text-info h5 mr-4'>Anxiety/Panic:</span>";
                     $apyn = $row['apyn'];
                     if ($apyn == 'y'){
-                        echo "<span class='h5 text-secondary rounded border ml-2 p-1 gradient-background-3'>Yes</span>";
+                        // echo "<span class='h5 text-secondary rounded border border-info ml-2 px-2 py-1 gradient-background-3'>Yes</span>";
+                        echo "<a class='btn btn-outline-info h5 text-secondary ml-2' href='read-events.php?entry={$entry_id}'>Yes</a>";
                     } else if ($apyn == 'n'){
-                        echo "<span class='h5 text-secondary rounded border ml-2 p-1 gradient-background-3'>No</span>";
+                        echo "<span class='btn border-info rounded h5 text-secondary ml-2'>No</span>";
                     };
 
                     echo "</div>"; // end col-3
                     echo "</div>"; // end row
 
-                    echo "<a href='inc/content/delete/delete-entry.inc.php?id={$row['entry_id']}' onclick='return confirm(\"Are you sure you want to delete this?\");'><button type='button' class='custom-delete ml-4 mb-4'>Delete</button></a>";
+                    echo "<a class='btn custom-delete ml-4 mb-4' href='inc/content/delete/delete-entry.inc.php?id={$row['entry_id']}' onclick='return confirm(\"Are you sure you want to delete this?\");'>Delete</a>";
 
                     echo "</fieldset>";
                 }
