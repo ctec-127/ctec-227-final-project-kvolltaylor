@@ -14,11 +14,11 @@
                             WHERE event_id='$id'";
         $sql_delete_location_tag = "DELETE FROM `event_location_tag` 
                                     WHERE event_id='$id'";
-        $sql_update_entry = "UPDATE `entry` AS ent
-                             FROM ent 
+        $sql_update_entry = "UPDATE ent 
+                             SET ent.apyn = 'n'  
+                             FROM `entry` AS ent 
                              INNER JOIN `event` AS evt 
-                             ON ent.entry_id = evt.entry_id 
-                             SET apyn = 'n'  
+                             ON ent.entry_id = evt.entry_id   
                              WHERE event_id='$id'";
 
         $result_delete_event = $db->query($sql_delete_event);

@@ -97,7 +97,7 @@
                         };
                         echo "</div>";
                     }else{
-                        echo "<div class='noface'><i class='fas fa-exclamation-circle text-secondary fa-7x p-2 rounded-circle bg-white border'></i></div>";
+                        echo "<div class='noface'><i class='far fa-circle text-secondary fa-7x p-2 rounded-circle bg-white border'></i></div>";
                     }
                         // end if mood
 
@@ -105,7 +105,7 @@
                     echo "<div class='col-sm-12 col-xl-10 col-md-8'>";
                     echo "<div class='border rounded border-info p-4 bg-white h-100'>";
                     if ($row['text'] == ''){
-                            echo "<div class='notext p-3 d-inline text-center'><i class='fas fa-exclamation-circle text-light fa-5x'></i></div>";
+                            echo "<div class='notext p-3 d-inline text-center'><i class='fas fa-question-circle text-light fa-5x'></i></div>";
                     } else {
                         echo $row['text'];
                     };

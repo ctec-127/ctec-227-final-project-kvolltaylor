@@ -28,6 +28,7 @@
     <!-- quotes -->
     <div id="quote_jumbotron" class="center">
         <div class="jumbotron center gradient-background-2 mb-4 d-none d-lg-inline-block">
+            <!-- fixed cursor after presentation -->
             <div id="quotes" class="pointer">
             </div>
         </div>
