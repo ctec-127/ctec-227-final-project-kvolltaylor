@@ -80,13 +80,13 @@
                                     Create a password between 8 and 30 characters long
                                 </p>
                                 <label for="pw" class="ml-4">Password</label>
-                                <a id="showPassword2" class="pw_show font-italic ml-2" onclick="showPassword2();">Show Password</a>
+                                <span id="showPassword2" class="pw_show ml-2 pointer" onclick="showPassword2();">Show Password</span>
                             <br>
                                 <br>
                                 <input type="password" id="pw" name="pw" minlength='8' maxlength="100" class="ml-4">
                                 <br><br>
                                 <label for="pw_verify" class="ml-4">Verify Password</label>
-                                <a id="showPassword3" class="pw_show font-italic ml-2" onclick="showPassword3();">Show Password</a>
+                                <span id="showPassword3" class="pw_show ml-2 pointer" onclick="showPassword3();">Show Password</span>
                             <br>
                                 <br>
                                 <input type="password" id="pw_verify" name="pw_verify" minlength='8' maxlength="100" class="ml-4">
@@ -100,7 +100,7 @@
 
                                 <!-- modal link -->
                                 <div class="pb-3 ml-4">
-                                    <a href class="text-primary font-italic underline_link" data-toggle="modal" data-target="#tc_text">
+                                    <a href class="text-primary font-italic underline_link pointer" data-toggle="modal" data-target="#tc_text">
                                     Read terms and conditions
                                     </a>
                                 </div>

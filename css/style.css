@@ -69,12 +69,8 @@ a.underline_link a:hover {
     text-decoration: underline;
 }
 
-#showPassword {
-    text-decoration: underline;
-}
-
-#showPassword2 {
-    text-decoration: underline;
+#showPassword, #showPassword2, #showPassword3 {
+    color: #17a2b8;
 }
 
 .quote_style {

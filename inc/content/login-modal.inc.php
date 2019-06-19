@@ -20,7 +20,7 @@
                             <input type="email" name="email" id="email_nav" placeholder="name@email.com" required>
                             <br><br>
                             <label for="pw_nav">Password</label>
-                            <a href="#" id="showPassword" class="pw_show font-italic ml-2" onclick="showPassword();">Show Password</a>
+                            <span id="showPassword" class="pw_show ml-2 pointer" onclick="showPassword();">Show Password</span>
                             <br>
                             <input type="password" name="pw" id="pw_nav" class="pw_field" placeholder="password" required>
                         </div> 
