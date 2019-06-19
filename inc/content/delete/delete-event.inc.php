@@ -14,9 +14,9 @@
                             WHERE event_id='$id'";
         $sql_delete_location_tag = "DELETE FROM `event_location_tag` 
                                     WHERE event_id='$id'";
-        $sql_update_entry = "UPDATE ent 
+        $sql_update_entry = "UPDATE `entry` AS ent  
                              SET ent.apyn = 'n'  
-                             FROM `entry` AS ent 
+                             FROM ent 
                              INNER JOIN `event` AS evt 
                              ON ent.entry_id = evt.entry_id   
                              WHERE event_id='$id'";
